@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="na" type="text"/>
+    <input type="button" value="点击执行ajax请求" onclick="DoAjax();"/>
+
+    <script src="/static/jquery/jquery-1.8.3.min.js"></script>
+
+    <script type="text/javascript">
+        function DoAjax() {
+            var temp = $('#na').val();
+            $.ajax({
+                url:'/app04/ajax/',
+                type: 'POST',
+                data: {dat:temp},
+                success: function (arg) {
+                   var obj = jQuery.parseJSON(arg);
+                    console.log(obj.status);
+                    console.log(obj.msg);
+                    console.log(obj.data);
+                    $('#na').val(obj.msg);
+
+                },
+                error:function () {
+                   console.log('failed')
+                }
+            });
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

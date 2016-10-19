@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>原生HTML</h1>
+
+    <form action="/app01/login/" method="POST">
+        <div>用户名:<input name="username" placeholder="用户名"/></div>
+
+        <div>密码: <input name="password" placeholder="密码"/></div>
+
+        <div><input type="submit" value="提交"/><span style="color: red">{{ status }}</span> </div>
+    </form>
+
+    <h1>Form HTML</h1>
+    <form action="/app03/index/" method="POST">
+        <div>
+            <div>
+                用户名:{{ data.username }}
+            </div>
+            <div>
+                邮箱:{{ data.email }}
+            </div>
+            <div>
+                IP: {{ data.ip }}
+            </div>
+            <div>
+                <input type="submit" value="提交"/><span style="color: red;">{{ error }}</span>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
